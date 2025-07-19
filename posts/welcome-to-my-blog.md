@@ -2,7 +2,7 @@
 title: "Welcome to My Beautiful Blog"
 date: "2024-01-15"
 excerpt: "Learn how this markdown-powered blog works and discover all the amazing features we've built in."
-tags: ["introduction", "markdown", "nextjs", "blog"]
+tags: ["introduction", "markdown", "nextjs", "blog", "tech", "web2", "development"]
 author: "Blog Author"
 readTime: 5
 displayonmainpage: "Latest"
