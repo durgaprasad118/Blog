@@ -4,8 +4,8 @@ import { format } from 'date-fns';
 import Link from 'next/link';
 import Image from 'next/image';
 import GitHubComments from '../../components/GitHubComments';
+import BuyMeACoffee from '../../components/BuyMeACoffee';
 
-// Custom components for MDX
 const components = {
   img: (props) => (
     <img
@@ -44,7 +44,6 @@ export default async function BlogPost({ params }) {
 
   return (
     <article className="max-w-4xl mx-auto">
-      {/* Back to blog link */}
       <Link
         href="/"
         className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 mb-8 transition-colors group"
@@ -62,10 +61,9 @@ export default async function BlogPost({ params }) {
             d="M7 16l-4-4m0 0l4-4m-4 4h18"
           />
         </svg>
-        Back to blog
+        Back to blogs
       </Link>
 
-      {/* Post header */}
       <header className="mb-12">
         <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
           {post.title}
@@ -109,12 +107,14 @@ export default async function BlogPost({ params }) {
         )}
       </header>
 
-      {/* Post content */}
       <div className="prose prose-lg max-w-none">
         <MDXRemote source={post.content} components={components} />
       </div>
 
-      {/* GitHub Comments */}
+      <div className="mt-16 pt-8">
+        <BuyMeACoffee />
+      </div>
+
       <GitHubComments postId={id} />
     </article>
   );

@@ -5,12 +5,10 @@ import { format } from 'date-fns';
 export default function Home() {
   const posts = getAllPosts();
   
-  // Filter posts to only show those with displayonmainpage field
   const mainPosts = posts.filter(post => post.displayonmainpage);
 
   return (
     <div className="space-y-6 lg:space-y-8">
-      {/* Blog posts list */}
       <div className="space-y-4 lg:space-y-6">
         {mainPosts.length > 0 ? (
           mainPosts.map((post) => (
