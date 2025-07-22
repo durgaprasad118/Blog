@@ -1,5 +1,107 @@
 @import "tailwindcss";
 
+/* Prism.js Tomorrow theme colors */
+pre[class*="language-"],
+code[class*="language-"] {
+  color: #e2e8f0;
+  background: #1e293b;
+  font-family: 'Monaco', 'Consolas', 'Liberation Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  tab-size: 4;
+  hyphens: none;
+}
+
+pre[class*="language-"] {
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  overflow: auto;
+  border-radius: 0.5rem;
+  border: 1px solid #334155;
+}
+
+code[class*="language-"] {
+  padding: 0;
+  border-radius: 0;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #64748b;
+}
+
+.token.punctuation {
+  color: #e2e8f0;
+}
+
+.token.namespace {
+  opacity: 0.7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #fbbf24;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #34d399;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.language-scss .token.string {
+  color: #f87171;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #60a5fa;
+}
+
+.token.function,
+.token.class-name {
+  color: #a78bfa;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #fbbf24;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
 /* Font configuration */
 .font-sans {
   font-family: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
@@ -198,4 +300,37 @@
   color: rgb(156 163 175);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+/* Code Blocks - handled by react-syntax-highlighter */
+.prose pre {
+  margin: 0;
+}
+
+/* Code Blocks - Let Prism handle styling */
+.prose pre {
+  margin: 1.5rem 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  white-space: pre !important;
+  word-wrap: normal !important;
+  overflow-wrap: normal !important;
+}
+
+.prose pre code {
+  white-space: pre !important;
+  word-wrap: normal !important;
+  overflow-wrap: normal !important;
+}
+
+/* Let Prism.js handle all syntax highlighting */
+
+/* Inline code */
+.prose code:not(pre code) {
+  background-color: #f1f5f9;
+  color: #dc2626;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+  font-family: 'Monaco', 'Consolas', 'Liberation Mono', monospace;
 }

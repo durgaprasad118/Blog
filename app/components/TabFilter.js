@@ -5,9 +5,8 @@ import { useState } from 'react';
 export default function TabFilter({ activeTab, onTabChange }) {
   const tabs = [
     { id: 'all', label: 'All' },
-    { id: 'tech', label: 'Tech' },
-    { id: 'web3', label: 'Web 3' },
-    { id: 'web2', label: 'Web 2' }
+    { id: 'tech', label: 'Tags' },
+    { id: 'web3', label: 'Web 3' }
   ];
 
   return (
@@ -20,7 +19,7 @@ export default function TabFilter({ activeTab, onTabChange }) {
               onClick={() => onTabChange(tab.id)}
               className={`px-4 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
                 activeTab === tab.id
-                  ? 'bg-blue-500 text-white shadow-md transform scale-105'
+                  ? 'bg-gray-800 text-white shadow-md transform scale-105'
                   : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700'
               }`}
             >

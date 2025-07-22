@@ -1,7 +1,8 @@
-import { getPostData, getAllPostIds } from '../../../lib/posts'
+import { getPostData, getAllPostIds } from '../../lib/posts'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { notFound } from 'next/navigation'
-// import GitHubComments from '../../components/GitHubComments'
+import SyntaxHighlighter from '../components/SyntaxHighlighter'
+// import GitHubComments from '../components/GitHubComments'
 
 export async function generateStaticParams() {
   const posts = getAllPostIds()
@@ -25,7 +26,7 @@ export default async function BlogPost({ params }) {
           <img
             src={post.headerImage}
             alt={post.title}
-            className="w-full h-48 sm:h-64 md:h-80 lg:h-96 object-cover object-center"
+            className="w-full h-48 sm:h-64 md:h-80 lg:h-96 object-cover object-center rounded-xl"
             style={{ display: 'block' }}
           />
         </div>
@@ -61,6 +62,30 @@ export default async function BlogPost({ params }) {
       <div className="prose prose-lg max-w-none">
         <MDXRemote source={post.content} />
       </div>
+
+      <SyntaxHighlighter />
+
+      {post.resources && post.resources.length > 0 && (
+        <div className="mt-8 pt-6 border-t border-gray-200">
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">Resources</h2>
+          <div className="space-y-2">
+            {post.resources.map((resource, index) => (
+              <div key={index} className="text-base">
+                <span className="font-medium text-gray-900">{resource.title}</span>
+                <span className="text-gray-500 mx-2">: </span>
+                <a
+                  href={resource.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 hover:text-blue-600 underline"
+                >
+                  {resource.url}
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* <div className="mt-12 pt-8 border-t border-gray-200">
         <GitHubComments />
