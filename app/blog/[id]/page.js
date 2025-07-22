@@ -1,7 +1,7 @@
 import { getPostData, getAllPostIds } from '../../../lib/posts'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { notFound } from 'next/navigation'
-import GitHubComments from '../../components/GitHubComments'
+// import GitHubComments from '../../components/GitHubComments'
 
 export async function generateStaticParams() {
   const posts = getAllPostIds()
@@ -19,17 +19,31 @@ export default async function BlogPost({ params }) {
   }
 
   return (
-    <article className="prose prose-lg max-w-none">
-      <header className="mb-8">
+    <div className="w-full">
+      {post.headerImage && (
+        <div className="w-full bg-gray-50 mb-8">
+          <img
+            src={post.headerImage}
+            alt={post.title}
+            className="w-full h-48 sm:h-64 md:h-80 lg:h-96 object-cover object-center"
+            style={{ display: 'block' }}
+          />
+        </div>
+      )}
+      <div className="max-w-3xl sm:max-w-4xl mx-auto px-2 sm:px-6 py-8">
+        <article className="prose prose-lg max-w-none">
+        <header className="mb-8">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">{post.title}</h1>
-        <div className="flex items-center gap-4 text-sm text-gray-600">
-          <time dateTime={post.date}>{post.date}</time>
-          <span>•</span>
-          <span>{post.readTime} min read</span>
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-gray-600">
+          <div className="flex items-center gap-4">
+            <time dateTime={post.date}>{post.date}</time>
+            <span>•</span>
+            <span>{post.readTime} min read</span>
+          </div>
           {post.tags && post.tags.length > 0 && (
             <>
-              <span>•</span>
-              <div className="flex gap-2">
+              <span className="hidden sm:inline">•</span>
+              <div className="flex flex-wrap gap-2">
                 {post.tags.map((tag) => (
                   <span
                     key={tag}
@@ -48,9 +62,11 @@ export default async function BlogPost({ params }) {
         <MDXRemote source={post.content} />
       </div>
 
-      <div className="mt-12 pt-8 border-t border-gray-200">
+      {/* <div className="mt-12 pt-8 border-t border-gray-200">
         <GitHubComments />
+      </div> */}
+        </article>
       </div>
-    </article>
+    </div>
   )
 } 

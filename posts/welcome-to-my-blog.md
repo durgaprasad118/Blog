@@ -6,6 +6,7 @@ tags: ["introduction", "markdown", "nextjs", "blog", "tech", "web2", "developmen
 author: "Blog Author"
 readTime: 5
 displayonmainpage: "Latest"
+headerImage: "/headers/test.jpg"
 ---
 
 Hello and welcome to this beautiful markdown-powered blog built with Next.js! This post will show you all the amazing features and capabilities of our blogging system.
