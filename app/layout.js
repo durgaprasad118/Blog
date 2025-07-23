@@ -11,6 +11,13 @@ export const metadata = {
     icons: {
         icon: '/favicon.ico',
     },
+    openGraph: {
+        images: ['/opengraph.png'],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        images: ['/opengraph.png'],
+    },
 };
 
 export default function RootLayout({ children }) {
