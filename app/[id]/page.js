@@ -2,7 +2,7 @@ import { getPostData, getAllPostIds } from '../../lib/posts'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { notFound } from 'next/navigation'
 import SyntaxHighlighter from '../components/SyntaxHighlighter'
-// import GitHubComments from '../components/GitHubComments'
+import GitHubComments from '../components/GitHubComments'
 
 export async function generateStaticParams() {
   const posts = getAllPostIds()
@@ -87,9 +87,9 @@ export default async function BlogPost({ params }) {
         </div>
       )}
 
-      {/* <div className="mt-12 pt-8 border-t border-gray-200">
+      <div className="mt-12 pt-8 border-t border-gray-200">
         <GitHubComments />
-      </div> */}
+      </div>
         </article>
       </div>
     </div>
